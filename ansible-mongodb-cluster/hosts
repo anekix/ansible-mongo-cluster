@@ -1,0 +1,34 @@
+# The site wide list of mongodb servers
+
+[mongo_servers]
+fb01 ansible_ssh_host=128.199.198.177 mongod_port=27017 ansible_ssh_user=debian ansible_ssh_port=1432
+fb02 ansible_ssh_host=128.199.219.173 mongod_port=27017 ansible_ssh_user=debian ansible_ssh_port=1432
+fb03 ansible_ssh_host=128.199.111.212 mongod_port=27017 ansible_ssh_user=debian ansible_ssh_port=1432
+
+
+# Remember to add the machine to your /etc/hosts file
+# mongo6 mongod_port=27017
+
+[mongod_primary]
+fb01 ansible_ssh_host=128.199.198.177 mongod_port=27017 ansible_ssh_user=debian ansible_ssh_port=1432
+
+[mongod_slaves]
+fb02 ansible_ssh_host=128.199.219.173 mongod_port=27017 ansible_ssh_user=debian ansible_ssh_port=1432
+fb03 ansible_ssh_host=128.199.111.212 mongod_port=27017 ansible_ssh_user=debian ansible_ssh_port=1432
+
+#[mongod_arbiters]
+#mongo5 mongod_port=27017
+# The site wide list of mongodb servers
+#[mongo_servers]
+#mongo1 mongod_port=27017
+#mongo2 mongod_port=27017
+#mongo3 mongod_port=27017
+# Remember to add the machine to your /etc/hosts file
+# mongo6 mongod_port=27017
+#[mongod_primary]
+#mongo1 mongod_port=27017
+#[mongod_slaves]
+#mongo2 mongod_port=27017
+#mongo3 mongod_port=27017
+#[mongod_arbiters]
+#mongo5 mongod_port=27017

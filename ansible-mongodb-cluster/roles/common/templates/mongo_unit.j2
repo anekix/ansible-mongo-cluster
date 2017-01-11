@@ -1,0 +1,17 @@
+[Unit]
+Description=High-performance, schema-free document-oriented database
+After=network.target
+
+[Service]
+Type=forking
+User=mongodb
+Group=mongodb
+# Run ExecStartPre with root-permissions
+PermissionsStartOnly=true
+ExecStartPre=-/bin/mkdir -p /var/run/mongo
+ExecStartPre=/bin/chown -R mongodb:mongodb /var/run/mongo/
+PIDFile=/var/run/mongo/mongod.pid
+ExecStart=/usr/bin/mongod --quiet --config /etc/mongod.conf
+
+[Install]
+WantedBy=multi-user.target

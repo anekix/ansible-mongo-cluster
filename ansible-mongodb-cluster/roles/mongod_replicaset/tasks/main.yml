@@ -1,0 +1,13 @@
+---
+# Secure replication using the secret
+- name: Copy the keyfile for replicated authentication
+  become: yes
+  copy: src=secret dest={{ keyfile_location_prefix }}secret owner=mongodb group=mongodb mode=0400
+  notify:
+    - Restart mongodb
+
+- name: Create the authenticated mongodb configuration file
+  become: yes
+  template: src=mongod.conf.j2 dest=/etc/mongod.conf
+  notify:
+    - Restart mongodb
